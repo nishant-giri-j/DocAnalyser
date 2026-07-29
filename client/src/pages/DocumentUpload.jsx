@@ -4,7 +4,7 @@ import { useDropzone } from 'react-dropzone';
 import toast from 'react-hot-toast';
 import { HiOutlineUpload, HiOutlineDocumentAdd, HiOutlineX } from 'react-icons/hi';
 import api from '../lib/api';
-import PageLoader from '../components/ui/PageLoader';
+import { PageLoader } from '../components/ui/LoadingSpinner';
 import { DOCUMENT_TYPES } from '../lib/constants';
 
 export default function DocumentUpload() {

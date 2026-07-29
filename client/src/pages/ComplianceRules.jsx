@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { HiOutlinePlus, HiOutlineShieldCheck, HiCheck, HiX } from 'react-icons/hi';
 import api from '../lib/api';
-import PageLoader from '../components/ui/PageLoader';
+import { PageLoader } from '../components/ui/LoadingSpinner';
 import EmptyState from '../components/ui/EmptyState';
 import Modal from '../components/ui/Modal';
 

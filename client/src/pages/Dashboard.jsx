@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { HiOutlineUsers, HiOutlineDocumentText, HiOutlineClipboardList, HiOutlineShieldCheck, HiArrowRight } from 'react-icons/hi';
 import api from '../lib/api';
 import StatsCard from '../components/ui/StatsCard';
-import PageLoader from '../components/ui/PageLoader';
+import { PageLoader } from '../components/ui/LoadingSpinner';
 import StatusBadge from '../components/ui/StatusBadge';
 import EmptyState from '../components/ui/EmptyState';
 

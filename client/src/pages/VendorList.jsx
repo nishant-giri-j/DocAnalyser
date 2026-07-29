@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HiPlus, HiOutlineSearch } from 'react-icons/hi';
 import api from '../lib/api';
-import PageLoader from '../components/ui/PageLoader';
+import { PageLoader } from '../components/ui/LoadingSpinner';
 import StatusBadge from '../components/ui/StatusBadge';
 import EmptyState from '../components/ui/EmptyState';
 
