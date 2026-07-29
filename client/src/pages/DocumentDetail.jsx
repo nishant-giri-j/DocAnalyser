@@ -171,7 +171,7 @@ const DocumentDetail = () => {
                             {risk.title || 'Compliance Violation'}
                           </p>
                           <p className="text-sm text-text-secondary mt-1">
-                            {risk.description || risk}
+                            {risk.description || (typeof risk === 'string' ? risk : JSON.stringify(risk))}
                           </p>
                         </div>
                       </div>
