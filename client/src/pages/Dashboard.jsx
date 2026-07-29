@@ -40,27 +40,24 @@ const Dashboard = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
         <StatsCard
-          title="Total Vendors"
-          value={data.stats?.totalVendors || 0}
-          icon={<HiOutlineUsers className="w-6 h-6" />}
-          trend={data.stats?.vendorsTrend}
+          label="Total Vendors"
+          value={data.summary?.totalVendors || 0}
+          icon={HiOutlineUsers}
         />
         <StatsCard
-          title="Total Documents"
-          value={data.stats?.totalDocuments || 0}
-          icon={<HiOutlineDocumentText className="w-6 h-6" />}
-          trend={data.stats?.documentsTrend}
+          label="Total Documents"
+          value={data.summary?.totalDocuments || 0}
+          icon={HiOutlineDocumentText}
         />
         <StatsCard
-          title="Active Rules"
-          value={data.stats?.activeRules || 0}
-          icon={<HiOutlineClipboardList className="w-6 h-6" />}
+          label="Active Rules"
+          value={data.summary?.activeComplianceRules || 0}
+          icon={HiOutlineClipboardList}
         />
         <StatsCard
-          title="Avg Risk Score"
-          value={data.stats?.avgRiskScore || 0}
-          icon={<HiOutlineShieldCheck className="w-6 h-6" />}
-          trend={data.stats?.riskTrend}
+          label="Avg Risk Score"
+          value={Math.round(data.summary?.averageRiskScore || 0)}
+          icon={HiOutlineShieldCheck}
         />
       </div>
 
