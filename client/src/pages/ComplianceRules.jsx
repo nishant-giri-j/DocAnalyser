@@ -279,8 +279,8 @@ export default function ComplianceRules() {
                   <option value="">Select</option>
                   <option value="equals">Equals (==)</option>
                   <option value="not_equals">Not Equals (!=)</option>
-                  <option value="greater_than">Greater Than (>)</option>
-                  <option value="less_than">Less Than (<)</option>
+                  <option value="greater_than">Greater Than (&gt;)</option>
+                  <option value="less_than">Less Than (&lt;)</option>
                   <option value="contains">Contains</option>
                 </select>
               </div>
