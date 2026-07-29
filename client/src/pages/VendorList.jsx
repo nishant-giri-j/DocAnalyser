@@ -120,7 +120,7 @@ const VendorList = () => {
                 title={searchTerm ? "No matching vendors" : "No vendors yet"}
                 description={searchTerm ? `No vendors found matching "${searchTerm}".` : "Get started by adding your first vendor to the system."}
                 actionLabel={searchTerm ? "Clear Search" : "Add Vendor"}
-                onAction={() => searchTerm ? setSearchTerm('') : navigate('/vendors/new')}
+                action={() => searchTerm ? setSearchTerm('') : navigate('/vendors/new')}
               />
             </div>
           )}

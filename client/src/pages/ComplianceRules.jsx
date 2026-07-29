@@ -125,12 +125,9 @@ export default function ComplianceRules() {
           <EmptyState
             title="No rules configured"
             description="Create your first compliance rule to start validating documents automatically."
-            icon={<HiOutlineShieldCheck className="w-12 h-12 text-gray-300" />}
-            action={
-              <button onClick={() => setIsModalOpen(true)} className="btn-primary mt-4">
-                Add Rule
-              </button>
-            }
+            icon={HiOutlineShieldCheck}
+            action={() => setIsModalOpen(true)}
+            actionLabel="Add Rule"
           />
         ) : (
           <div className="overflow-x-auto">
