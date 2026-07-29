@@ -9,7 +9,8 @@
     "prisma:generate": "npx prisma generate",
     "prisma:migrate": "npx prisma migrate dev",
     "prisma:studio": "npx prisma studio",
-    "seed": "node prisma/seed.js"
+    "seed": "node prisma/seed.js",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.0.0",
