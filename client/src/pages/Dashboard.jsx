@@ -17,7 +17,7 @@ const Dashboard = () => {
     const fetchDashboard = async () => {
       try {
         setLoading(true);
-        const response = await api.get('/api/dashboard');
+        const response = await api.get('/dashboard');
         setData(response.data);
       } catch (err) {
         setError(err.message || 'Failed to load dashboard data');

@@ -17,7 +17,7 @@ const DocumentDetail = () => {
 
   const fetchDocument = async () => {
     try {
-      const response = await api.get(`/api/documents/${id}`);
+      const response = await api.get(`/documents/${id}`);
       setDoc(response.data);
     } catch (error) {
       toast.error('Failed to load document details');
@@ -34,7 +34,7 @@ const DocumentDetail = () => {
     setProcessing(true);
     try {
       await toast.promise(
-        api.post(`/api/documents/${id}/process`),
+        api.post(`/documents/${id}/process`),
         {
           loading: 'Processing document with AI...',
           success: 'Document processed successfully!',

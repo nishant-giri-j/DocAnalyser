@@ -16,7 +16,7 @@ const VendorDetail = () => {
   useEffect(() => {
     const fetchVendor = async () => {
       try {
-        const response = await api.get(`/api/vendors/${id}`);
+        const response = await api.get(`/vendors/${id}`);
         setVendor(response.data);
       } catch (error) {
         toast.error('Failed to load vendor details');

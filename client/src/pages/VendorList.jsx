@@ -17,7 +17,7 @@ const VendorList = () => {
     const fetchVendors = async () => {
       try {
         setLoading(true);
-        const response = await api.get('/api/vendors');
+        const response = await api.get('/vendors');
         setVendors(response.data);
       } catch (err) {
         setError(err.message || 'Failed to load vendors');

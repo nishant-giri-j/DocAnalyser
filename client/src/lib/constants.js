@@ -15,15 +15,15 @@ export const DOCUMENT_STATUS = {
   FAILED: { label: 'Failed', color: 'danger' },
 };
 
-export const DOCUMENT_TYPES = {
-  INSURANCE_CERTIFICATE: 'Insurance Certificate',
-  TAX_FORM_W9: 'Tax Form (W-9)',
-  TAX_FORM_W8: 'Tax Form (W-8)',
-  BUSINESS_LICENSE: 'Business License',
-  NDA: 'Non-Disclosure Agreement',
-  CONTRACT: 'Contract',
-  OTHER: 'Other',
-};
+export const DOCUMENT_TYPES = [
+  { value: 'INSURANCE_CERTIFICATE', label: 'Insurance Certificate' },
+  { value: 'TAX_FORM_W9', label: 'Tax Form (W-9)' },
+  { value: 'TAX_FORM_W8', label: 'Tax Form (W-8)' },
+  { value: 'BUSINESS_LICENSE', label: 'Business License' },
+  { value: 'NDA', label: 'Non-Disclosure Agreement' },
+  { value: 'CONTRACT', label: 'Contract' },
+  { value: 'OTHER', label: 'Other' },
+];
 
 export const RISK_LEVELS = {
   LOW: { label: 'Low Risk', min: 0, max: 30, color: '#22c55e' },
