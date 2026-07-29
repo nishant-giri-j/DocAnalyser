@@ -30,7 +30,7 @@ const VendorList = () => {
 
   const filteredVendors = vendors.filter(vendor => 
     vendor.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    vendor.company?.toLowerCase().includes(searchTerm.toLowerCase())
+    vendor.company?.name?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   if (loading) return <PageLoader message="Loading vendors..." />;
@@ -88,7 +88,7 @@ const VendorList = () => {
                       {vendor.name}
                     </td>
                     <td className="text-slate-600 dark:text-slate-300">
-                      {vendor.company || 'N/A'}
+                      {vendor.company?.name || 'N/A'}
                     </td>
                     <td>
                       <StatusBadge type="vendor" status={vendor.status} />

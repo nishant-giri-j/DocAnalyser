@@ -124,7 +124,7 @@ const Dashboard = () => {
                       <td className="font-medium">
                         <div className="flex flex-col">
                           <span>{doc.filename || doc.name}</span>
-                          <span className="text-xs text-slate-500">{doc.vendorName}</span>
+                          <span className="text-xs text-slate-500">{doc.vendor?.name}</span>
                         </div>
                       </td>
                       <td><StatusBadge type="document" status={doc.status} /></td>
