@@ -1,0 +1,130 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String   @unique
+  industry    String?
+  address     String?
+  contactName String?
+  contactEmail String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  vendors     Vendor[]
+  complianceRules ComplianceRule[]
+}
+
+model Vendor {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  email          String?
+  phone          String?
+  address        String?
+  status         VendorStatus @default(PENDING_REVIEW)
+  riskScore      Float?   @default(0)
+  companyId      String   @db.ObjectId
+  company        Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  documents      Document[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([companyId])
+  @@index([status])
+}
+
+model Document {
+  id              String         @id @default(auto()) @map("_id") @db.ObjectId
+  fileName        String
+  originalName    String
+  filePath        String
+  fileSize        Int
+  mimeType        String
+  documentType    DocumentType   @default(OTHER)
+  status          DocumentStatus @default(UPLOADED)
+  parsedData      Json?
+  extractedEntities Json?
+  riskScore       Float?         @default(0)
+  riskFactors     Json?
+  complianceNotes String?
+  vendorId        String         @db.ObjectId
+  vendor          Vendor         @relation(fields: [vendorId], references: [id], onDelete: Cascade)
+  uploadedAt      DateTime       @default(now())
+  processedAt     DateTime?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  @@index([vendorId])
+  @@index([status])
+  @@index([documentType])
+}
+
+model ComplianceRule {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  description   String?
+  category      String
+  field         String
+  operator      RuleOperator
+  value         String
+  severity      RuleSeverity @default(MEDIUM)
+  isActive      Boolean  @default(true)
+  companyId     String   @db.ObjectId
+  company       Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([companyId])
+  @@index([category])
+}
+
+enum VendorStatus {
+  PENDING_REVIEW
+  APPROVED
+  FLAGGED
+  REJECTED
+  EXPIRED
+}
+
+enum DocumentType {
+  INSURANCE_CERTIFICATE
+  TAX_FORM_W9
+  TAX_FORM_W8
+  BUSINESS_LICENSE
+  NDA
+  CONTRACT
+  OTHER
+}
+
+enum DocumentStatus {
+  UPLOADED
+  PROCESSING
+  PARSED
+  COMPLIANCE_CHECK
+  COMPLETED
+  FAILED
+}
+
+enum RuleOperator {
+  GREATER_THAN
+  LESS_THAN
+  EQUALS
+  NOT_EQUALS
+  CONTAINS
+  NOT_CONTAINS
+  BEFORE_DATE
+  AFTER_DATE
+  EXISTS
+}
+
+enum RuleSeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
